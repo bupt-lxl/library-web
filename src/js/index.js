@@ -120,7 +120,7 @@ class Root extends React.Component{
                 <Route path="" component={App} >  
                     <IndexRoute component={Home} />
                     <Route path="home" component={Home} />
-                    <Route path="myResources" component={MyResources} onEnter={this.requireAuth.bind(this)}>
+                    <Route path="myResources" component={MyResources}>
                         <IndexRoute component={MyContribution}/>
                         <Route path="contribution" component={MyContribution} />
                         <Route path="collection" component={MyCollection} />
@@ -128,7 +128,7 @@ class Root extends React.Component{
                         <Route path="upload" component={Upload} />
                         <Route path="uploadDone" component={UploadDone} />
                     </Route>
-                    <Route path="user" component={UserScene} onEnter={this.requireAuth.bind(this)}>
+                    <Route path="user" component={UserScene}>
                         <IndexRoute component={ChangeInfo}/>
                         <Route path="myAccount" component={MyAccount} />
                         <Route path="changePassword" component={ChangePassword} />
@@ -140,7 +140,7 @@ class Root extends React.Component{
                     <Route path="classifyBrowse" component={ClassifyBrowse}/>
                     <Route path="departmentBrowse" component={DepartmentBrowse}/>
                     <Route path="search/:keywords/:resIdList" component={SearchScene}/>
-                    <Route path="resourcesStatistics" component={ResourcesStatistics} onEnter={this.requireAuth.bind(this)}/>
+                    <Route path="resourcesStatistics" component={ResourcesStatistics}/>
                     <Route path="resource/:id" component={ResourceDetail}/>
                     <Route path="meeting" component={Meeting} />
                 </Route>
