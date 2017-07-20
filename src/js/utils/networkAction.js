@@ -1,5 +1,11 @@
-import config from "../config.js"
+const config = require("../../../config.json")
 import {CookieUtil} from "./cookieUtil.js"
+/**
+ * 这是个用于网络请求的类，只有一个重要的方法：
+ * async promiseNetwork(baseData, paramData = {}) {}
+ * baseData是外部必须传入的参数，是一个对象，该对象中必须包含url，可选属性为method和contentType（在源码中已备注）。
+ * paramData是将要传给后台的数据，默认为空，paramData数据以key-value的形式传入。
+ */
 export class NetworkAction{
     /**
      * 
@@ -7,41 +13,29 @@ export class NetworkAction{
      *      url: string (not null)
      *      method: 'GET' | 'POST' (default 'POST')
      *      contentType: 'urlencoded' | 'formdata' | 'json' (default 'urlencode')
-     * } baseData
+     * } baseData // 
      * 
      * @param {} paramData 
      * 
      * @return { Promise }
      */
-    static sessionId;
     async promiseNetwork(baseData , paramData = {}) {
         return new Promise(async (resolve, reject) => {
             try {
-                let baseUrl = config.baseUrl;
-                const method = (baseData.method || 'POST').toUpperCase();
-                const useBody = method === 'POST' || method === 'PUT';
+                let baseUrl = config.baseUrl; // 先从config文件中拿到统一的baseUrl
+                const method = (baseData.method || 'POST').toUpperCase(); // 判断使用get还是post
+                const useBody = method === 'POST' || method === 'PUT'; // 判断是否要向后台传数据
                 let url = `${baseUrl}` +
                     (baseUrl.endsWith('/') ? '' : '/') +
                     `${baseData.url}`;
-                let contentType = 'application/x-www-form-urlencoded';
-                // if(NetworkAction.sessionId) {
-                //     paramData["sessionId"] = NetworkAction.sessionId;
-                // }
-                let input = this.urlencodedParam(paramData);
-                let cookie = "";
-                if(NetworkAction.sessionId) {
-                    cookie = encodeURIComponent("sessionId") + "=" + encodeURIComponent(NetworkAction.sessionId) + ";" + encodeURIComponent("UserInfo") + "=";
-                    // console.log("cookie: ", cookie);
-                }
-                let headers = {
-                    //'Content-Type': contentType,
+                let input; // 将向后台传输的编码后的数据
+                let headers = { // 请求数据时的header，很多情况下可写可不写
                     'Access-Control-Allow-Origin': '*',
                     "Access-Control-Allow-Credentials": "true",
                     'Access-Control-Allow-Methods': 'GET,HEAD,OPTIONS,POST,PUT',
                     'Access-Control-Allow-Headers': 'access-control-allow-origin, Origin,Accept, X-Requested-With, Content-Type, access-control-allow-methods, Access-Control-Request-Headers, access-control-allow-credentials',
-                    // "Cookie": cookie
                 };
-                if(baseData.contentType) {
+                if(baseData.contentType) { // 如果外部传了contentType，则依据相应的规则进行编码
                     switch (baseData.contentType) {
                         case 'urlencoded':
                             input = this.urlencodedParam(paramData);
@@ -73,8 +67,8 @@ export class NetworkAction{
                 }
                 
                 useBody || (url = this.appendQuery(url, input));
-                // let contentType = baseData.contentType || 'application/x-www-form-urlencoded';
                 console.log(url, input);
+                //进行网络请求 fetch
                 let res = await fetch(url, {
                     method: method,
                     headers: headers,
@@ -82,19 +76,15 @@ export class NetworkAction{
                     credentials: 'include',
                     mode: 'cors'
                 })
-                // console.log("input: ", input, res, res.json());
+                // await得到fetch的结果，网络请求完成 
+                // 200 <= res.status <= 299 时说明请求是正常的，其他情况则报错。
                 if(res.status < 200 || res.status > 299) {
                     throw new Error(res.status + '');
                 }
                 if(res) {
-                    // cookie = document.cookie;
-                    // global.userId = CookieUtil.get("userId");
-                    // console.log('document.cookie: ', cookie, " global.userId: ", global.userId);
+                    // 把res的内容转为json数据
                     let data = await res.json();
-                    if(data.data && data.data.sessionId) {
-                        console.log("cookie: ", data.data.sessionId);
-                        NetworkAction.sessionId = data.data.sessionId
-                    }
+                    // 调用resolve，结束promise，并把数据返回
                     resolve(data);
                 } else {
                     resolve(null);
@@ -140,7 +130,9 @@ export class NetworkAction{
     appendQuery(link, query) {
         return query ? (link + '&' + query).replace(/[&?]+/, '?') : link
     }
+    getConfig() {
 
+    }
 }
 
 let networkAction = new NetworkAction();

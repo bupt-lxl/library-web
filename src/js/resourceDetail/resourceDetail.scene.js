@@ -4,7 +4,7 @@ import { Link } from "react-router"
 import ReactPDF from 'react-pdf'
 import networkAction from "../utils/networkAction"
 import { date } from "../utils/utilFunctions"
-import config from "../config.js"
+const config = require("../../../config.json")
 import './resourceDetail.style.less'
 
 export default class ResourceDetail extends React.Component {
