@@ -90,29 +90,25 @@ class Root extends React.Component{
     constructor(props) {
         super(props);
         console.log("root")
-        this.state = { isGuest: true };
-    }
-    componentWillMount() {
-        let userId = sessionStorage.getItem('userId');
-        console.log("|root session userId: ", sessionStorage.getItem('userId'))
-        this.setState({isGuest: userId === 'guest' || !userId});
+        this.userId = sessionStorage.getItem('userId');
+        this.isGuest = this.userId === 'guest' || !this.userId;
     }
     requireAuth(nextState, replace) {
-        console.log("hhhhhh", this.state.isGuest )
-        if (this.state.isGuest) {
+        console.log("hhhhhh", this.isGuest )
+        if (this.isGuest) {
             console.log("guest")
             replace({
               pathname: '/TeachingResourceManagement/login',
               state: { nextPathname: nextState.location.pathname }
             })
-            // browserHistory.push('/login');
         }
     }
     handleUserIdChange(userId) {
         console.log("login userId: ", !userId, userId === 'guest' || !userId);
-        this.setState({
-            isGuest: userId === 'guest' || !userId
-        })
+        this.isGuest = userId === 'guest' || !userId;
+        // this.setState({
+        //     isGuest: userId === 'guest' || !userId
+        // })
     }
     render() {
         return (

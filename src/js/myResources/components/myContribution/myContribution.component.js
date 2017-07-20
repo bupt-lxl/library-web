@@ -38,8 +38,8 @@ export default class MyContribution extends React.Component {
             console.log("MyUpload: ", res)
             let formatData = this.formatData(res.data.resourceList);
             let newPageInfo = {
-                curPage: res.data.currentPageNo,
-                totalPages: res.data.totalPage
+                curPage: Number(res.data.currentPageNo),
+                totalPages: Number(res.data.totalPage)
             }
             this.setState({
                 infoArr: formatData,
@@ -50,10 +50,11 @@ export default class MyContribution extends React.Component {
     formatData(data) {
         let formatData = [];
         let curPage = this.state.pageInfo.curPage;
+        let num = data.length || 10;
         data.forEach((item, index) => {
             let uploadTime = date(item.date);
             let obj = {
-                index: (curPage - 1) * 10 + index + 1,
+                index: (curPage - 1) * num + index + 1,
                 resId: item.resId,
                 name: item.title,
                 uploadTime: uploadTime,

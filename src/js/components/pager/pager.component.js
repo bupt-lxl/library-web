@@ -4,7 +4,7 @@ export default class Pager extends React.Component {
     clickHandler(e) {
         e.stopPropagation();
         if(e.target.dataset.page > 0 && e.target.dataset.page <= this.props.totalPages) {
-            this.props.handleClick(e.target.dataset.page);
+            this.props.handleClick(Number(e.target.dataset.page));
         }
     }
     showButton() {

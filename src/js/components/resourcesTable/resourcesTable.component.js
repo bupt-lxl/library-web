@@ -49,10 +49,11 @@ export default class ResourcesTable extends React.Component {
     formatData(data, pageInfo) {
         let formatData = [];
         let curPage = pageInfo.curPage;
+        let num = data.length || 10;
         data.forEach((item, index) => {
             let uploadTime = date(item.date);
             let obj = {
-                index: (curPage - 1) * 10 + index + 1,
+                index: (curPage - 1) * num + index + 1,
                 resId: item.resId,
                 name: item.title,
                 author: item.contributorName,

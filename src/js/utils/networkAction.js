@@ -24,7 +24,7 @@ export class NetworkAction{
         return new Promise(async (resolve, reject) => {
             try {
                 const config = getConfig();
-                console.log("config:", config)
+                // console.log("config:", config)
                 let baseUrl = config.baseUrl; // 先从config文件中拿到统一的baseUrl
                 const method = (baseData.method || 'POST').toUpperCase(); // 判断使用get还是post
                 const useBody = method === 'POST' || method === 'PUT'; // 判断是否要向后台传数据

@@ -29,8 +29,8 @@ export default class MyCollection extends React.Component {
         result.then((res) => {
             console.log("MyCollection: ", res);
             let newPageInfo = {
-                curPage: res.data.currentPageNo,
-                totalPages: res.data.totalPage
+                curPage: Number(res.data.currentPageNo),
+                totalPages: Number(res.data.totalPage)
             }
             let infoArr = this.formatData(res.data.resourceList);
             this.setState({
@@ -43,9 +43,10 @@ export default class MyCollection extends React.Component {
     formatData(data) {
         let infoArr = [];
         let curPage = this.state.pageInfo.curPage;
+        let num = data.length || 10;
         data.forEach((item, index) => {
             let eachResource = {
-                index: (curPage - 1) * 10 + index + 1,
+                index: (curPage - 1) * num + index + 1,
                 resId: item.resId,
                 name: item.title,
                 score: item.commentscore,
