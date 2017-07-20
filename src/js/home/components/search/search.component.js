@@ -110,8 +110,8 @@ export default class Search extends Component {
                         </FormControl>
                     </FormGroup>
                 </div>*/}
-                <div className="col-sm-3 col-sm-offset-1 left-logo">
-                    <img src="/assets/img/BITClogo.png" />
+                <div className="col-sm-2 col-sm-offset-1 left-logo">
+                    <img src="/assets/img/jiDianLogo.png" />
                 </div>
                 <div className=" col-sm-5">
                     <div className="input-group">
@@ -122,7 +122,7 @@ export default class Search extends Component {
                     </div>
                     {this.showResType()}
                 </div>
-                <div className="col-sm-2  right-logo">
+                <div className="col-sm-2 col-sm-offset-1 right-logo">
                     <img src="/assets/img/jingeLOGO.png" />
                 </div>
             </div>
