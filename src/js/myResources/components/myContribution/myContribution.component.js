@@ -50,7 +50,7 @@ export default class MyContribution extends React.Component {
     formatData(data) {
         let formatData = [];
         let curPage = this.state.pageInfo.curPage;
-        let num = data.length || 10;
+        let num = 10;
         data.forEach((item, index) => {
             let uploadTime = date(item.date);
             let obj = {

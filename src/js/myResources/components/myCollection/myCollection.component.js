@@ -43,7 +43,7 @@ export default class MyCollection extends React.Component {
     formatData(data) {
         let infoArr = [];
         let curPage = this.state.pageInfo.curPage;
-        let num = data.length || 10;
+        let num = 10;
         data.forEach((item, index) => {
             let eachResource = {
                 index: (curPage - 1) * num + index + 1,
