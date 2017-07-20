@@ -4,7 +4,8 @@ import { Link } from "react-router"
 import ReactPDF from 'react-pdf'
 import networkAction from "../utils/networkAction"
 import { date } from "../utils/utilFunctions"
-const config = require("../../../config.json")
+// const config = require("../../../config.json")
+import {getConfig} from "../utils/getConfig"
 import './resourceDetail.style.less'
 
 export default class ResourceDetail extends React.Component {
@@ -296,6 +297,7 @@ export default class ResourceDetail extends React.Component {
 
     render() {
         let {title, file, resId, pageIndex, pageNumber, total, date, score, viewNum, downloads, contributor, commentContent, whetherCollect } = this.state;
+        let config = getConfig();
         let downloadApi = config.baseUrl + "/TeachingResourceManagement/teachingResource/download";
         return (
         <div className="container">
