@@ -87,21 +87,21 @@ export class Home extends Component {
                 <div className="mid-pic col-sm-6">
                     <Carousel>
                         <Carousel.Item>
-                                <Image width={900} height={500} alt="900x500" responsive src="/assets/img/door.png"/>
+                                <Image width={900} height={500} alt="900x500" responsive src="/assets/img/carousel_1.png"/>
                             <Carousel.Caption>
                                 <h3></h3>
                                 <p></p>
                             </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <Image width={900} height={500} alt="900x500" src="/assets/img/building1.png"/>
+                            <Image width={900} height={500} alt="900x500" src="/assets/img/carousel_2.png"/>
                             <Carousel.Caption>
                                 <h3></h3>
                                 <p></p>
                                 </Carousel.Caption>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <Image width={900} height={500} alt="900x500" src="/assets/img/main.png"/>
+                            <Image width={900} height={500} alt="900x500" src="/assets/img/carousel_3.png"/>
                             <Carousel.Caption>
                                 <h3></h3>
                                 <p></p>
@@ -138,11 +138,11 @@ export class Home extends Component {
                 </div>
             </div>
             <div className="col-sm-12  home-footer" >
-                <div className="col-sm-3 col-sm-offset-2 guojiao-link" onClick={() => window.open('http://www.eduyun.cn/')}>
-                    <img src="/assets/img/guojiao.png"/>
+                <div className="col-sm-3 col-sm-offset-2 footer-left" onClick={() => window.open('http://www.eduyun.cn/')}>
+                    <img src="/assets/img/footerLeft.png"/>
                 </div>
-                <div className="col-sm-3 col-sm-offset-2 guozhi-link" onClick={() => window.open('http://zyk.ouchn.edu.cn/portal/index')}>
-                    <img src="/assets/img/guozhi.png"/>
+                <div className="col-sm-3 col-sm-offset-2 footer-right" onClick={() => window.open('http://zyk.ouchn.edu.cn/portal/index')}>
+                    <img src="/assets/img/footerRight.png"/>
                 </div>
             </div>
         </div>
