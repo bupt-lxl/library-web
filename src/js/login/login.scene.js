@@ -5,7 +5,7 @@ import './login.style.less'
 import networkAction from "../utils/networkAction"
 
 export default class Login extends Component {
-    constructor(props) {  //只有在constructor中可以直接为this.state分配值，其他情况要是用setState()方法更新state值，如this.setState({loginState:0})
+    constructor(props) {  // 只有在constructor中可以直接为this.state分配值，其他情况要是用setState()方法更新state值，如this.setState({loginState:0})
         super(props);
         this.userId = "",
         this.state = {
