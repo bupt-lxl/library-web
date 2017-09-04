@@ -1,13 +1,13 @@
 import { TreeSelect } from "antd";
 import React from "react"
 
-// const treeData = [{
-//   label: 'Node1',
-//   value: '0-0',
-//   key: '0-0',
-//   children: [{
-//     label: 'Child Node1',
-//     value: '0-0-1',
+// const treeData = [{         //下拉树结构所需的数据结构：
+//   label: 'Node1',              0-0
+//   value: '0-0',                   0-0-1
+//   key: '0-0',                     0-0-2
+//   children: [{                 0-1
+//     label: 'Child Node1',         0-1-1
+//     value: '0-0-1',               0-1-2
 //     key: '0-0-1',
 //   }, {
 //     label: 'Child Node2',

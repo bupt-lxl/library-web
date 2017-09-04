@@ -80,8 +80,8 @@ export default class ClassifyBrowse extends React.Component {
     }
     handlePageChange(page) {
         this.setState({
-            pageInfo: Object.assign({}, this.state.pageInfo, {curPage: page})
-        }, this.searchNetwork.bind(this))
+            pageInfo: Object.assign({}, this.state.pageInfo, {curPage: page})    //Object.assign方法用于对象的合并，如有同名属性，则后面的属性会覆盖前面的属性
+        }, this.searchNetwork.bind(this))      //所有的点击事件和回调函数（不立即执行）在调用时都要加bind(this),直接在函数里调用另一个函数时不用bind(this)。函数调用写在setState里时是先setState结束之后再执行函数。
     }
     render() {
         let {tableData, selectedDepartment, subjects, resources, objects, pageInfo, totalResourceNum} = this.state;
@@ -89,7 +89,7 @@ export default class ClassifyBrowse extends React.Component {
         return (
         <div className="col-sm-12">
             <div className="col-sm-3">
-                <ClassifySelect 
+                <ClassifySelect                // 将数据传入ClassifySelect组件，并由ClassifySelect中的this.props自动接收
                     subjects={subjects} 
                     resources={resources} 
                     objects={objects} 
