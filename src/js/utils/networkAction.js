@@ -70,7 +70,7 @@ export class NetworkAction{
                 }
                 
                 useBody || (url = this.appendQuery(url, input));
-                console.log(url, input);
+               // console.log(url, input);             //2017.09.05
                 //进行网络请求 fetch
                 let res = await fetch(url, {
                     method: method,
@@ -117,7 +117,7 @@ export class NetworkAction{
         Object.keys(query).forEach((name) => {
             key = scope ? `${scope}[${name}]` : name
             value = query[name]
-            console.log("name:", name, "key:", key, "value:", value)
+          // console.log("name:", name, "key:", key, "value:", value)   //2017.09.05
             if (value === undefined) return
             value === null && (value = '')
             if (typeof value === 'object' && !Array.isArray(value)) {

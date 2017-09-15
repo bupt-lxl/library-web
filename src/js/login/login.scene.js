@@ -3,11 +3,8 @@ import ReactDOM from "react-dom";
 import {browserHistory} from 'react-router'
 import './login.style.less'
 import networkAction from "../utils/networkAction"
-<<<<<<< Updated upstream
 import { Modal, Button } from "react-bootstrap"
-=======
 import {encrypt} from '../utils/encrypt'
->>>>>>> Stashed changes
 
 export default class Login extends Component {
     constructor(props) {  // 只有在constructor中可以直接为this.state分配值，其他情况要是用setState()方法更新state值，如this.setState({loginState:0})

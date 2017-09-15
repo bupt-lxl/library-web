@@ -6,6 +6,7 @@ import UpDownCollectNum from "../components/upDownCollectNum/upDownCollectNum.co
 import "./home.style.less"
 import networkAction from "../utils/networkAction"
 import { date } from "../utils/utilFunctions"
+import OpenLocalFiles from "./components/openLocalFiles/openLocalFiles.component"
 
 export class Home extends Component {
     constructor(props) {
@@ -133,12 +134,13 @@ export class Home extends Component {
                         <div className="col-sm-12 ">
                             <br/>
                             <UploadButton isGuest={isGuest}/>
+                            <OpenLocalFiles />
                         </div>
                     </div>
                 </div>
             </div>
             <div className="col-sm-12  home-footer" >
-                <div className="col-sm-3 col-sm-offset-2 footer-left" onClick={() => window.open('http://www.eduyun.cn/')}>
+                <div className="col-sm-3 col-sm-offset-2 footer-left" onClick={() => ('http://www.eduyun.cn/')}>
                     <img src="/assets/img/footerLeft.png"/>
                 </div>
                 <div className="col-sm-3 col-sm-offset-2 footer-right" onClick={() => window.open('http://zyk.ouchn.edu.cn/portal/index')}>
