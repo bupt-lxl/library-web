@@ -150,7 +150,8 @@ export default class AdminQueryTable extends React.Component {
             showInsertModal: true,
             individualInfo: {
                 gender: "0",
-                depId: this.props.depId ? this.props.depId : this.departmentInfo[0].depId,
+                //depId: this.props.depId ? this.props.depId : this.departmentInfo[0].depId,
+                depId:  this.departmentInfo[0].depId,
                 postId: this.post[0].postId,
                 protitleId: this.protitle[0].protitleId,
                 userauthId: this.userAuthInfo[0].userauthId
@@ -336,7 +337,9 @@ export default class AdminQueryTable extends React.Component {
                 <Modal.Header closeButton>
                     <Modal.Title>添加新用户</Modal.Title>
                 </Modal.Header>
+                <Modal.body>
                     {this.inputForm()}
+                    </Modal.body>
                 <Modal.Footer>
                 </Modal.Footer>
             </Modal>
