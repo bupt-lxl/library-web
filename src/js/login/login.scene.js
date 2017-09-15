@@ -3,7 +3,11 @@ import ReactDOM from "react-dom";
 import {browserHistory} from 'react-router'
 import './login.style.less'
 import networkAction from "../utils/networkAction"
+<<<<<<< Updated upstream
 import { Modal, Button } from "react-bootstrap"
+=======
+import {encrypt} from '../utils/encrypt'
+>>>>>>> Stashed changes
 
 export default class Login extends Component {
     constructor(props) {  // 只有在constructor中可以直接为this.state分配值，其他情况要是用setState()方法更新state值，如this.setState({loginState:0})
@@ -52,9 +56,18 @@ export default class Login extends Component {
     handleLogin(event) {
         event.preventDefault();
         console.log("handleLogin")
-        let userNum = document.getElementsByName("userNum")[0].value;
-        let password = document.getElementsByName("password")[0].value;
-        console.log("usrNum: ", userNum, "psw: ", password);
+        // let userNum = document.getElementsByName("userNum")[0].value;
+        // let password = document.getElementsByName("password")[0].value;
+        let userNum = this.state.userNum;
+        let password = this.state.password;
+
+        // let encryptUserNum = encrypt(userNum);
+        // let encryptPassword = encrypt(password);
+        //console.log("usrNum: ", encryptUserNum, "psw: ", encryptUserNum);
+        // let CryptoJS = require("crypto-js");
+        // console.log("########", CryptoJS.HmacSHA1("Message", "Key"));
+
+        //console.log("usrNum: ", userNum, "psw: ", password);
         const result = networkAction.promiseNetwork({"url": `TeachingResourceManagement/user/login`, "method": 'POST'},{"userNum": userNum, "password": password})
         result.then((res) => {
             console.log("login-result:", res);
@@ -371,7 +384,7 @@ export default class Login extends Component {
     render(){
         return(
             <div id="login-page">
-                 <div className=" login-all ">
+                <div className=" login-all ">
                     <div  className=" login-left " >
                         <form className="form-sign" onSubmit={this.handleLogin.bind(this)}>
                             <div className="head">

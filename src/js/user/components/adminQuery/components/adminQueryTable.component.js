@@ -151,7 +151,7 @@ export default class AdminQueryTable extends React.Component {
             individualInfo: {
                 gender: "0",
                 //depId: this.props.depId ? this.props.depId : this.departmentInfo[0].depId,
-                depId:  this.departmentInfo[0].depId,
+                depId: this.departmentInfo[0].depId,       //2017.09.08
                 postId: this.post[0].postId,
                 protitleId: this.protitle[0].protitleId,
                 userauthId: this.userAuthInfo[0].userauthId
