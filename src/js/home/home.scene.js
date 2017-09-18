@@ -132,8 +132,9 @@ export class Home extends Component {
                         <div className="cutoff-line ">
                         </div>
                         <div className="col-sm-12 ">
-                            <br/>
+                             <br/> 
                             <UploadButton isGuest={isGuest}/>
+                            <br/><br/>
                             <OpenLocalFiles />
                         </div>
                     </div>

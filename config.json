@@ -1,5 +1,7 @@
 {
     "baseUrl": "http://10.108.137.127:8080",
-    "regeditUrl": "Word.Backup.8://" 
+    "WordRegeditUrl": "Word.Backup.8://" ,
+    "ExcelRegeditUrl": "Excel.Backup://",
+    "PPTRegeditUrl": "PowerPoint.Addin.8://"
 
 }

@@ -1,17 +1,12 @@
 import React, {Component} from "react"
 import {Link, browserHistory} from "react-router"
-import "./openLocalFiles.style.less"
+//import "./openLocalFiles.style.less"
 import { getConfig } from "../../../utils/getConfig"
 export default class OpenLocalFiles extends React.Component {
     constructor(props) {
         super(props);
-    //this.handleClick = this.handleClick.bind(this);
     }
 
-
-    // goToUpload() {
-    //     browserHistory.push("/TeachingResourceManagement/myResources/upload");
-    // }
 
     exec(event){
         let location = 'C:\\Windows\\explorer.exe';
@@ -26,23 +21,21 @@ export default class OpenLocalFiles extends React.Component {
 
     render() {
         return (
-            <div className="col-sm-12 form-group">
-                 {/* <a href="javascript:;" className="file"><i className="glyphicon glyphicon-folder-open" /> 打开本地文档
-                      <input type="file" ref={(input) => { this.fileInput = input; }} />  
-                    <input type="file"  />
-                </a>  */}
-
-                {/* <form>
-                    <input type="button"  value="启动本地应用" onClick={ this.exec.bind(this) } />
-                </form> */}
-
-                {/* <a href="myOpenLocalFiles://" ><i className="glyphicon glyphicon-folder-open" /> 打开本地文档 </a>     */}
-                {/* <a href="Word.Backup.8://" ><i className="glyphicon glyphicon-folder-open" /> 打开Word </a>  */}
-
-                <a href={ getConfig().regeditUrl } ><i className="glyphicon glyphicon-folder-open" /> 打开Word </a> 
-                {/* <a href="Word.Document.12://" ><i className="glyphicon glyphicon-folder-open" /> 打开Word </a> */}
-                {/* <a href="Explorer.AssocActionId.BurnSelection://" ><i className="glyphicon glyphicon-folder-open" /> 打开本地文档 </a> */}
-
+            <div className="open-files-area ">
+                 {/* <div className="col-sm-4">
+                    <a href={ getConfig().WordRegeditUrl } className="btn btn-warning " > 打开Word </a> 
+                </div>
+               
+                <div className="col-sm-4">
+                    <a href={ getConfig().ExcelRegeditUrl } className="btn btn-warning " > 打开Excel </a> 
+                </div>
+                <div className="col-sm-4">
+                    <a href={ getConfig().PPTRegeditUrl } className="btn btn-warning " > 打开PPT </a> 
+                </div>  */}
+                 
+                <a href={ getConfig().WordRegeditUrl } className="btn btn-info col-sm-4" > 打开Word </a>
+                <a href={ getConfig().ExcelRegeditUrl } className="btn btn-info col-sm-4" > 打开Excel </a>
+                <a href={ getConfig().PPTRegeditUrl } className="btn btn-info col-sm-4" > 打开PPT </a> 
             </div>
         );
 
