@@ -146,6 +146,7 @@ export default class AdminQueryTable extends React.Component {
         })
     }
     insertRow() {
+        console.log("#################### enter insertRow");
         this.setState({
             showInsertModal: true,
             individualInfo: {
@@ -327,28 +328,28 @@ export default class AdminQueryTable extends React.Component {
     showInsertBtn() {
         return (
             <button className="btn btn-info" onClick={this.insertRow.bind(this)}>
-                <i className="glyphicon glyphicon-plus"/>新增
+                <i className="glyphicon glyphicon-plus"/><span>新增</span>
             </button>
         )
     }
     showInsertModal() {
         return (
+            <div className="modal">
             <Modal show={this.state.showInsertModal} onHide={this.closeModal.bind(this)}>
                 <Modal.Header closeButton>
                     <Modal.Title>添加新用户</Modal.Title>
                 </Modal.Header>
-                <Modal.body>
                     {this.inputForm()}
-                    </Modal.body>
                 <Modal.Footer>
                 </Modal.Footer>
             </Modal>
+            </div>
         )
     }
     operatorFormatter(cell, row){
         return (
             <div>
-                <button className="btn btn-info btn-xs" onClick={this.modifyRow.bind(this, row)}>修改</button>
+                <button className="btn btn-info btn-xs" onClick={this.modifyRow.bind(this, row)}><span>修改</span></button>
             </div>
         )
     }
